@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Online Exam</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f4f4f4; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 8px; }
+        .question-box { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        h3 { margin-top: 0; }
+        .options label { display: block; margin: 5px 0; cursor: pointer; }
+        .submit-btn { width: 100%; padding: 15px; background-color: #28a745; color: white; font-size: 1.2em; border: none; cursor: pointer; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 style="text-align:center;">Final Exam</h2>
+        <p>Candidate: <b th:text="${username}">Student</b></p>
+        <hr/>
+        
+        <div style="position: fixed; top: 10px; right: 10px; background: #dc3545; color: white; padding: 10px; font-weight: bold; border-radius: 5px; z-index: 1000;">
+            Time Left: <span id="timer">00:00</span>
+        </div>
+
+        <form id="examForm" th:action="@{/exam/submit}" method="post">
+            
+            <div th:each="q, i : ${questions}" class="question-box">
+                <h3><span th:text="${i.index + 1}">1</span>. <span th:text="${q.content}">Question text?</span></h3>
+                
+                <div class="options">
+                    <label>
+                        <input type="radio" th:name="'q_' + ${q.id}" value="A">
+                        <span th:text="${q.optionA}">Option A</span>
+                    </label>
+                    <label>
+                        <input type="radio" th:name="'q_' + ${q.id}" value="B">
+                        <span th:text="${q.optionB}">Option B</span>
+                    </label>
+                    <label>
+                        <input type="radio" th:name="'q_' + ${q.id}" value="C">
+                        <span th:text="${q.optionC}">Option C</span>
+                    </label>
+                    <label>
+                        <input type="radio" th:name="'q_' + ${q.id}" value="D">
+                        <span th:text="${q.optionD}">Option D</span>
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Exam</button>
+        </form>
+        </div>
+
+    <script th:inline="javascript">
+        // Get the seconds from Java controller
+        let timeLeft = [[${secondsLeft}]]; 
+
+        const timerElement = document.getElementById("timer");
+        const examForm = document.getElementById("examForm");
+
+        const countdown = setInterval(() => {
+            // Calculate minutes and seconds
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+
+            // Add leading zero if less than 10 (e.g., 09:05)
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+
+            // Update screen
+            timerElement.innerText = minutes + ":" + seconds;
+
+            // Check if time is up
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                // REMOVED ALERT for smoother experience
+                examForm.submit(); // AUTO SUBMIT
+            }
+
+            timeLeft--;
+        }, 1000);
+    </script>
+
+</body>
+</html>

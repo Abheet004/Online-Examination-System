@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body { font-family: sans-serif; background-color: #e9ecef; padding: 20px; }
+        .header { background-color: #343a40; color: white; padding: 20px; border-radius: 5px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center; }
+        .btn { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-top: 10px; }
+        .btn-danger { background-color: #dc3545; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Admin Control Panel</h1>
+        <p>Manage Questions, Students, and Results</p>
+        <a th:href="@{/logout}" class="btn btn-danger" style="float:right; margin-top:-40px;">Logout</a>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <h3>➕ Add Question</h3>
+            <p>Create new questions for the exam bank.</p>
+            <a th:href="@{/admin/add-question}" class="btn">Add New</a>
+        </div>
+
+        <div class="card">
+            <h3>👨‍🎓 View Students</h3>
+            <p>See list of registered students.</p>
+            <a th:href="@{/admin/students}" class="btn">View List</a>
+        </div>
+        
+        <div class="card">
+            <h3>📊 Exam Results</h3>
+            <p>Check scores and performance.</p>
+            <a th:href="@{/admin/results}" class="btn">View Results</a>
+        </div>
+        <div class="card">
+    		<h3>📂 Manage Questions</h3>
+    		<p>View, Edit, or Delete existing questions.</p>
+    		<a th:href="@{/admin/questions}" class="btn">View List</a>
+		</div>
+		<div class="card" style="background-color: #fff3cd;">
+    		<h3>📢 Post Notice</h3>
+    		<p>Announce updates to students.</p>
+    		<a th:href="@{/admin/add-notice}" class="btn" style="background-color: #e0a800;">Write Notice</a>
+		</div>
+		<div class="card">
+			<h3>⚙️ Exam Settings</h3>
+			<p>Set the exam timer.</p>
+			<a th:href="@{/admin/settings}" class="btn">Settings</a>        
+		</div>
+    </div>
+
+</body>
+</html>

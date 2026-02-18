@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Exam Settings</title>
+</head>
+<body style="font-family: sans-serif; padding: 20px;">
+    
+    <a th:href="@{/admin/dashboard}">Back to Dashboard</a>
+    <h2>Configure Exam</h2>
+
+    <form th:action="@{/admin/settings}" th:object="${setting}" method="post">
+        <label>Exam Duration (in Minutes):</label><br>
+        <input type="number" th:field="*{examTimeInMinutes}" required min="1" style="padding:8px; margin-top:5px;"><br><br>
+        
+        <button type="submit" style="padding:10px 20px; background-color:blue; color:white; border:none;">Save Settings</button>
+    </form>
+
+</body>
+</html>

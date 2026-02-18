@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Profile</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f4f4f4; padding: 40px; }
+        .form-card {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        label { display: block; margin-top: 10px; font-weight: bold; }
+        input { width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box; }
+        .btn { width: 100%; padding: 10px; margin-top: 20px; border: none; cursor: pointer; color: white; border-radius: 5px; }
+        .btn-save { background-color: #28a745; }
+        .btn-cancel { background-color: #6c757d; display: inline-block; text-align: center; text-decoration: none; box-sizing: border-box; }
+    </style>
+</head>
+<body>
+
+    <div class="form-card">
+        <h2 style="text-align:center;">Edit Profile</h2>
+
+        <form th:action="@{/student/update-profile}" th:object="${user}" method="post">
+            
+            <label>Username (Read-only):</label>
+            <input type="text" th:field="*{username}" readonly style="background-color: #e9ecef;" />
+
+            <label>Full Name:</label>
+            <input type="text" th:field="*{fullName}" required />
+
+            <label>Email:</label>
+            <input type="email" th:field="*{email}" required />
+
+            <label>Phone Number:</label>
+            <input type="text" th:field="*{phoneNumber}" />
+
+            <label>New Password (leave blank to keep current):</label>
+            <input type="password" name="password" placeholder="Enter new password" />
+
+            <button type="submit" class="btn btn-save">Save Changes</button>
+            <a th:href="@{/student/profile}" class="btn btn-cancel">Cancel</a>
+        </form>
+    </div>
+
+</body>
+</html>

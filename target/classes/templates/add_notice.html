@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Post Notice</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; }
+        label { display: block; margin-top: 10px; font-weight: bold; }
+        input, textarea { width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box; }
+        button { margin-top: 20px; padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <a th:href="@{/admin/dashboard}">← Back to Dashboard</a>
+    <h2>Post New Announcement</h2>
+
+    <form th:action="@{/admin/add-notice}" th:object="${notice}" method="post">
+        <label>Title:</label>
+        <input type="text" th:field="*{title}" required placeholder="e.g., Exam Schedule Update" />
+
+        <label>Message:</label>
+        <textarea th:field="*{content}" rows="5" required placeholder="Write your message here..."></textarea>
+
+        <button type="submit">Post Notice</button>
+    </form>
+</body>
+</html>

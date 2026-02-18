@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My Profile</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f4f4f4; padding: 40px; }
+        .profile-card {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .profile-header {
+            border-bottom: 2px solid #007bff;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+        .profile-details {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .detail-row {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .label {
+            font-weight: bold;
+            color: #555;
+            display: inline-block;
+            width: 100px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .btn-back { background-color: #6c757d; }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <div class="profile-header">
+            <h2>User Profile</h2>
+            <p>Your account details</p>
+        </div>
+
+        <div class="profile-details">
+            <div class="detail-row">
+                <span class="label">Full Name:</span>
+                <span th:text="${user.fullName}">Name Here</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="label">Username:</span>
+                <span th:text="${user.username}">user123</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="label">Email:</span>
+                <span th:text="${user.email}">email@example.com</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="label">Role:</span>
+                <span th:text="${user.role}" style="text-transform: uppercase; font-weight:bold; color:#28a745;">STUDENT</span>
+            </div>
+            
+            </div>
+
+        <a th:href="@{/dashboard}" class="btn btn-back">Back to Dashboard</a>
+        <a th:href="@{/student/edit-profile}" class="btn" style="background-color: #ffc107; color: black; margin-left: 10px;">Edit Profile</a>
+        </div>
+
+</body>
+</html>

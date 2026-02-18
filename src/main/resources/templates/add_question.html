@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add New Question</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; }
+        label { display: block; margin-top: 10px; font-weight: bold; }
+        input, select { width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box; }
+        button { margin-top: 20px; padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+        .back-link { display: block; margin-bottom: 20px; color: #666; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <a th:href="@{/admin/dashboard}" class="back-link">← Back to Dashboard</a>
+    <h2>Add a New Question</h2>
+
+    <form th:action="@{/admin/add-question}" th:object="${question}" method="post">
+        
+        <label>Question Text:</label>
+        <input type="text" th:field="*{content}" required placeholder="e.g., What is the capital of France?"/>
+
+        <label>Option A:</label>
+        <input type="text" th:field="*{optionA}" required />
+
+        <label>Option B:</label>
+        <input type="text" th:field="*{optionB}" required />
+
+        <label>Option C:</label>
+        <input type="text" th:field="*{optionC}" required />
+
+        <label>Option D:</label>
+        <input type="text" th:field="*{optionD}" required />
+
+        <label>Correct Answer:</label>
+        <select th:field="*{answer}">
+            <option value="A">Option A</option>
+            <option value="B">Option B</option>
+            <option value="C">Option C</option>
+            <option value="D">Option D</option>
+        </select>
+
+        <label>Difficulty:</label>
+        <select th:field="*{difficulty}">
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+        </select>
+
+        <button type="submit">Save Question</button>
+    </form>
+
+</body>
+</html>

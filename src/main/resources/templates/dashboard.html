@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Dashboard</title>
+    <style>
+        body { font-family: sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        .header { background-color: #007bff; color: white; padding: 15px; text-align: right; }
+        .container { padding: 20px; }
+        .card { background: white; padding: 20px; margin-bottom: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .btn { display: inline-block; padding: 10px 20px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; }
+        .logout-btn { background-color: #dc3545; color: white; text-decoration: none; padding: 8px 15px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <span>Welcome, <b th:text="${username}">User</b>!</span>
+        <a th:href="@{/logout}" class="logout-btn">Logout</a>
+    </div>
+
+    <div class="container">
+        <h1>Student Dashboard</h1>
+        
+        <div th:if="${!notices.empty}" style="background: #fff3cd; padding: 15px; border-radius: 5px; margin-bottom: 20px; border: 1px solid #ffeeba;">
+    		<h3 style="margin-top:0; color: #856404;">📢 Latest Announcements</h3>
+    		<ul style="list-style: none; padding: 0;">
+        		<li th:each="notice : ${notices}" style="border-bottom: 1px solid #e2e2e2; padding: 10px 0;">
+            		<strong th:text="${notice.title}">Title</strong> 
+            		<span style="font-size: 0.8em; color: #666;" th:text="${notice.postDate}">2025-01-01</span>
+            		<p th:text="${notice.content}" style="margin: 5px 0 0 0;">Content goes here...</p>
+        		</li>
+    		</ul>
+		</div>
+
+        <div class="card">
+            <h3>📝 Available Exams</h3>
+            <p>View and take your scheduled exams.</p>
+            <a th:href="@{/exam/start}" class="btn">Start Exam</a> </div>
+
+        <div class="card">
+            <h3>👤 My Profile</h3>
+            <p>Update your personal information and password.</p>
+            <a th:href="@{/student/profile}" class="btn" style="background-color: #17a2b8;">View Profile</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

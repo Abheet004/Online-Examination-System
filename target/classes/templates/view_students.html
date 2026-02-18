@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registered Students</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #007bff; color: white; } /* Blue header for students */
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .back-link { margin-bottom: 20px; display: inline-block; text-decoration: none; color: #333;}
+    </style>
+</head>
+<body>
+
+    <a th:href="@{/admin/dashboard}" class="back-link">← Back to Dashboard</a>
+    <h2>Registered Students List</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="student : ${students}">
+                <td th:text="${student.id}">1</td>
+                <td th:text="${student.fullName}">John Doe</td>
+                <td th:text="${student.username}">john123</td>
+                <td th:text="${student.email}">john@example.com</td>
+                <td th:text="${student.phoneNumber}">9876543210</td> </tr>
+        </tbody>
+    </table>
+
+    <div th:if="${students.empty}" style="text-align:center; margin-top:20px; color:#777;">
+        No students registered yet.
+    </div>
+
+</body>
+</html>

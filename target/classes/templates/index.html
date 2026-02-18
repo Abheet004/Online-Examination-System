@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Online Exam Portal</title>
+    <style>
+        body { margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .container { display: flex; background: white; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); overflow: hidden; max-width: 900px; width: 90%; }
+        
+        /* Left Side - Welcome Text */
+        .welcome-section { flex: 1; padding: 40px; background-color: #f8f9fa; display: flex; flex-direction: column; justify-content: center; }
+        h1 { color: #2d3748; margin-bottom: 10px; font-size: 2.5em; }
+        p { color: #718096; line-height: 1.6; margin-bottom: 30px; }
+        
+        /* Right Side - Action Cards */
+        .action-section { flex: 1; padding: 40px; display: flex; flex-direction: column; gap: 20px; justify-content: center; background-color: #fff; }
+        
+        .card { border: 2px solid #e2e8f0; border-radius: 10px; padding: 20px; text-align: center; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-5px); border-color: #667eea; }
+        .card h3 { margin-top: 0; color: #4a5568; }
+        
+        .btn { display: block; width: 100%; padding: 12px 0; margin-top: 10px; border-radius: 6px; text-decoration: none; font-weight: bold; transition: background 0.3s; }
+        .btn-primary { background-color: #667eea; color: white; }
+        .btn-primary:hover { background-color: #5a67d8; }
+        .btn-outline { border: 2px solid #667eea; color: #667eea; background: transparent; }
+        .btn-outline:hover { background-color: #ebf4ff; }
+        .btn-admin { background-color: #2d3748; color: white; }
+        .btn-admin:hover { background-color: #1a202c; }
+        
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .container { flex-direction: column; }
+            .welcome-section, .action-section { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="welcome-section">
+            <h1>Online Exam System</h1>
+            <p>Welcome to the next generation of online testing. Experience secure, fast, and automated examinations with instant results.</p>
+            <small style="color:#a0aec0;">Powered by Spring Boot & MySQL</small>
+        </div>
+
+        <div class="action-section">
+            
+            <div class="card">
+                <h3>👨‍🎓 For Students</h3>
+                <p style="margin-bottom: 15px; font-size: 0.9em;">Take exams and view results.</p>
+                <a th:href="@{/login}" class="btn btn-primary">Login to Exam</a>
+                <a th:href="@{/register}" class="btn btn-outline">Register New Account</a>
+            </div>
+
+            <div class="card" style="background-color: #f7fafc;">
+                <h3>🔒 For Administrators</h3>
+                <p style="margin-bottom: 15px; font-size: 0.9em;">Manage questions and users.</p>
+                <a th:href="@{/login}" class="btn btn-admin">Admin Login</a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
