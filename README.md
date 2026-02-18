@@ -128,7 +128,7 @@ Final Project Report & User Manual
 # 📸 Screenshots
 
 ## 🏠 Landing Page
-![Landing Page](ScreenShots/LandingPage.png)
+![Landing Page](ScreenShots/LandigPage.png)
 
 ---
 
