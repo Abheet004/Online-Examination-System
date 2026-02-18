@@ -128,27 +128,27 @@ Final Project Report & User Manual
 # 📸 Screenshots
 
 ## 🏠 Landing Page
-![Landing Page](ScreenShot/LandingPage.png)
+![Landing Page](ScreenShots/LandingPage.png)
 
 ---
 
 ## 🛠 Admin Control Panel
-![Admin Control Panel](ScreenShot/AdminControlPanel.png)
+![Admin Control Panel](ScreenShots/AdminControlPanel.png)
 
 ---
 
 ## 🎓 Student Dashboard
-![Student Dashboard](ScreenShot/StudentDashboard.png)
+![Student Dashboard](ScreenShots/StudentDashboard.png)
 
 ---
 
 ## 📝 Examination Platform
-![Examination Platform](ScreenShot/ExaminationPlatform.png)
+![Examination Platform](ScreenShots/ExaminationPlatform.png)
 
 ---
 
 ## 👤 Student Profile Page
-![Student Profile Page](ScreenShot/StudentProfilePage.png)
+![Student Profile Page](ScreenShots/StudentProfilePage.png)
 
 ---
 
