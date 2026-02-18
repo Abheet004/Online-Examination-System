@@ -125,6 +125,32 @@ Compile and present complete project documentation.
 Final Project Report & User Manual  
 
 ---
+# 📸 Screenshots
+
+## 🏠 Landing Page
+![Landing Page](ScreenShot/LandingPage.png)
+
+---
+
+## 🛠 Admin Control Panel
+![Admin Control Panel](ScreenShot/AdminControlPanel.png)
+
+---
+
+## 🎓 Student Dashboard
+![Student Dashboard](ScreenShot/StudentDashboard.png)
+
+---
+
+## 📝 Examination Platform
+![Examination Platform](ScreenShot/ExaminationPlatform.png)
+
+---
+
+## 👤 Student Profile Page
+![Student Profile Page](ScreenShot/StudentProfilePage.png)
+
+---
 
 ## 🛠️ Technology Stack
 
